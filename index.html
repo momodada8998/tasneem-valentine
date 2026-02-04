@@ -3,132 +3,90 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>For Tasneem</title>
-
+  <title>For Tasneem 💗</title>
   <style>
     body{
-      margin:0;
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background:#fff5f8;
-      font-family: "Helvetica Neue", system-ui, -apple-system, sans-serif;
-      color:#2b2b2b;
+      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background:#fff3f7; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:#2b2b2b; padding:24px;
     }
-
     .card{
-      background:#ffffff;
-      border-radius:24px;
-      padding:36px 32px;
       width:min(420px, 92%);
-      box-shadow:0 20px 40px rgba(0,0,0,.08);
+      background:#fff; border-radius:26px; padding:34px 28px;
+      box-shadow:0 20px 50px rgba(0,0,0,.10);
       text-align:center;
     }
-
-    h1{
-      margin:0 0 12px;
-      font-size:32px;
-      font-weight:600;
-    }
-
-    p{
-      margin:0 0 24px;
-      font-size:16px;
-      line-height:1.6;
-      color:#555;
-    }
-
-    .question{
-      font-size:18px;
-      margin-bottom:20px;
-    }
-
-    .buttons{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-    }
-
+    h1{margin:0 0 10px; font-size:32px; font-weight:650;}
+    p{margin:0 0 22px; color:#5a5a5a; line-height:1.55; font-size:16px;}
+    .q{font-size:18px; margin:10px 0 18px;}
+    .row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
     button{
-      border:none;
-      padding:12px 18px;
-      border-radius:999px;
-      font-size:15px;
-      cursor:pointer;
-      transition:.2s ease;
+      border:none; padding:12px 18px; border-radius:999px; font-size:15px; cursor:pointer;
+      transition:.18s ease; font-weight:600;
     }
-
-    .yes{
-      background:#ff6f91;
-      color:white;
+    .yes{background:#ff6f91; color:#fff;}
+    .yes:hover{background:#ff5a82; transform:translateY(-1px);}
+    .no{background:#f1f1f1; color:#777;}
+    .msg{
+      display:none; margin-top:20px; color:#ff4f7e; font-weight:650;
     }
-
-    .yes:hover{background:#ff5a82}
-
-    .no{
-      background:#f2f2f2;
-      color:#777;
-    }
-
-    .message{
-      margin-top:24px;
-      font-size:16px;
-      color:#ff6f91;
-      display:none;
-    }
-
-    .heart{
-      font-size:22px;
-    }
+    .playerWrap{display:none; margin-top:14px;}
+    .tiny{margin-top:18px; font-size:12px; color:#8a8a8a;}
   </style>
 </head>
-
 <body>
   <div class="card">
     <h1>Hi Tasneem 💗</h1>
-
     <p>
-      I just wanted to do something small  
-      to remind you how special you are to me.
+      I just wanted to do something small and cute to remind you that you’re really special to me.
     </p>
 
-    <div class="question">
-      Will you be my Valentine?
-    </div>
+    <div class="q">Will you be my Valentine?</div>
 
-    <div class="buttons">
+    <div class="row">
       <button class="yes" id="yesBtn">Yes</button>
-      <button class="no">Hmm…</button>
+      <button class="no" id="noBtn">Hmm…</button>
     </div>
 
-    <div class="message" id="message">
-      <div class="heart">💞</div>
-      Okay… this song is for you.
+    <div class="msg" id="msg">Okay… this song is for you 💞</div>
+
+    <!-- Hidden until she clicks Yes -->
+    <div class="playerWrap" id="playerWrap">
+      <iframe
+        id="yt"
+        width="320"
+        height="180"
+        style="border-radius:14px; border:0;"
+        src="about:blank"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
     </div>
+
+    <div class="tiny">— from Mo</div>
   </div>
-
-  <!-- Hidden YouTube player -->
-  <iframe
-    id="player"
-    width="0"
-    height="0"
-    src="https://www.youtube.com/embed/r7d2R0C7i5E?enablejsapi=1"
-    frameborder="0"
-    allow="autoplay"
-    allowfullscreen>
-  </iframe>
 
   <script>
     const yesBtn = document.getElementById("yesBtn");
-    const msg = document.getElementById("message");
-    const player = document.getElementById("player");
+    const noBtn = document.getElementById("noBtn");
+    const msg = document.getElementById("msg");
+    const wrap = document.getElementById("playerWrap");
+    const yt = document.getElementById("yt");
+
+    // Official music video ID for "Company"
+    const videoId = "mx6X8dOIMRQ";
 
     yesBtn.addEventListener("click", () => {
       msg.style.display = "block";
+      wrap.style.display = "block";
 
-      // Start the song
-      player.src += "&autoplay=1";
+      // Load the video only after the click (more reliable for autoplay)
+      yt.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1`;
+    });
+
+    noBtn.addEventListener("click", () => {
+      msg.style.display = "block";
+      msg.textContent = "Take your time… I’m still smiling 😊";
     });
   </script>
 </body>
