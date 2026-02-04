@@ -2,291 +2,133 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>For Tasneem 💌</title>
-  <meta name="description" content="A tiny site for a big person." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For Tasneem</title>
+
   <style>
-    :root{
-      --bg1:#0f1020;
-      --bg2:#1b1030;
-      --card:#ffffff10;
-      --text:#fff;
-      --muted:#ffffffb3;
-      --accent:#ff4d6d;
-      --accent2:#ffd1dc;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 22px;
-    }
-    *{box-sizing:border-box}
     body{
       margin:0;
       min-height:100vh;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 800px at 20% 10%, #ff4d6d22, transparent 60%),
-        radial-gradient(900px 700px at 80% 30%, #ffd1dc22, transparent 55%),
-        linear-gradient(160deg, var(--bg1), var(--bg2));
       display:flex;
-      align-items:center;
       justify-content:center;
-      padding:24px;
-      overflow-x:hidden;
+      align-items:center;
+      background:#fff5f8;
+      font-family: "Helvetica Neue", system-ui, -apple-system, sans-serif;
+      color:#2b2b2b;
     }
-    .wrap{width:min(980px, 100%); display:grid; gap:18px;}
-    .top{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-    }
-    .badge{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px; border:1px solid #ffffff1f; background:#ffffff0c;
-      border-radius:999px; box-shadow:0 8px 22px rgba(0,0,0,.25);
-      backdrop-filter: blur(10px);
-    }
-    .dot{width:10px;height:10px;border-radius:50%; background:var(--accent); box-shadow:0 0 18px var(--accent);}
-    .badge small{color:var(--muted)}
-    .btnrow{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
-    button{
-      appearance:none; border:1px solid #ffffff22; color:var(--text);
-      background:#ffffff10; padding:10px 14px; border-radius:14px;
-      cursor:pointer; transition:.18s transform, .18s background, .18s border;
-      backdrop-filter: blur(10px);
-    }
-    button:hover{transform:translateY(-1px); background:#ffffff18; border-color:#ffffff35;}
-    .primary{background: linear-gradient(135deg, var(--accent), #ff8fab); border-color:#ff8fab55;}
-    .primary:hover{background: linear-gradient(135deg, #ff365c, #ff7aa7);}
+
     .card{
-      border:1px solid #ffffff1f;
-      background: linear-gradient(180deg, #ffffff12, #ffffff08);
-      border-radius:var(--radius);
-      padding:26px;
-      box-shadow:var(--shadow);
-      backdrop-filter: blur(14px);
-      position:relative;
-      overflow:hidden;
+      background:#ffffff;
+      border-radius:24px;
+      padding:36px 32px;
+      width:min(420px, 92%);
+      box-shadow:0 20px 40px rgba(0,0,0,.08);
+      text-align:center;
     }
-    .card:before{
-      content:"";
-      position:absolute; inset:-120px -120px auto auto;
-      width:280px; height:280px; border-radius:50%;
-      background: radial-gradient(circle at 30% 30%, #ffd1dc55, transparent 60%);
-      transform: rotate(18deg);
-      pointer-events:none;
+
+    h1{
+      margin:0 0 12px;
+      font-size:32px;
+      font-weight:600;
     }
-    h1{margin:0 0 10px; font-size: clamp(28px, 4vw, 44px); letter-spacing:-.02em;}
-    p{margin:0 0 14px; color:var(--muted); line-height:1.55;}
-    .grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
+
+    p{
+      margin:0 0 24px;
+      font-size:16px;
+      line-height:1.6;
+      color:#555;
     }
-    @media (max-width:820px){ .grid{grid-template-columns:1fr;} .btnrow{justify-content:flex-start;} }
-    .panel{
-      border:1px solid #ffffff1a;
-      background:#00000012;
-      border-radius:18px;
-      padding:18px;
+
+    .question{
+      font-size:18px;
+      margin-bottom:20px;
     }
-    .label{font-weight:650; margin-bottom:8px;}
-    .note{
-      border-left:3px solid var(--accent);
-      padding:12px 12px 12px 14px;
-      border-radius:12px;
-      background:#ff4d6d10;
-      color:#fff;
+
+    .buttons{
+      display:flex;
+      gap:12px;
+      justify-content:center;
     }
-    .choices{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
-    .pill{
-      padding:10px 12px;
+
+    button{
+      border:none;
+      padding:12px 18px;
       border-radius:999px;
-      border:1px solid #ffffff22;
-      background:#ffffff0d;
+      font-size:15px;
       cursor:pointer;
-      user-select:none;
-      transition:.18s transform, .18s background, .18s border;
+      transition:.2s ease;
     }
-    .pill:hover{transform:translateY(-1px); background:#ffffff14; border-color:#ffffff35;}
-    .pill.yes{background:linear-gradient(135deg, #22c55e33, #22c55e10); border-color:#22c55e55;}
-    .pill.no{background:linear-gradient(135deg, #ef444433, #ef444410); border-color:#ef444455;}
-    .footer{
-      display:flex; justify-content:space-between; align-items:center; gap:10px;
-      color:#ffffffaa; font-size:13px; flex-wrap:wrap;
+
+    .yes{
+      background:#ff6f91;
+      color:white;
     }
-    .tiny{font-size:12px; color:#ffffff99}
+
+    .yes:hover{background:#ff5a82}
+
+    .no{
+      background:#f2f2f2;
+      color:#777;
+    }
+
+    .message{
+      margin-top:24px;
+      font-size:16px;
+      color:#ff6f91;
+      display:none;
+    }
+
     .heart{
-      position:absolute; pointer-events:none; opacity:.9;
-      animation: floatUp 2.8s ease-in forwards;
-      filter: drop-shadow(0 12px 18px rgba(0,0,0,.35));
+      font-size:22px;
     }
-    @keyframes floatUp{
-      0%{transform:translate(-50%, 0) scale(.9); opacity:0}
-      10%{opacity:1}
-      100%{transform:translate(-50%, -220px) scale(1.2); opacity:0}
-    }
-    .codey{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size:12px; color:#ffffffb0;
-      border:1px dashed #ffffff2a; border-radius:14px;
-      padding:12px; background:#00000018;
-    }
-    a{color:var(--accent2)}
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="top">
-      <div class="badge">
-        <span class="dot"></span>
-        <div>
-          <div style="font-weight:700;">Valentine’s Build</div>
-          <small>compiled with feelings.exe</small>
-        </div>
-      </div>
+  <div class="card">
+    <h1>Hi Tasneem 💗</h1>
 
-      <div class="btnrow">
-        <button id="copyBtn">Copy a sweet line</button>
-        <button class="primary" id="surpriseBtn">Surprise 💖</button>
-      </div>
+    <p>
+      I just wanted to do something small  
+      to remind you how special you are to me.
+    </p>
+
+    <div class="question">
+      Will you be my Valentine?
     </div>
 
-    <div class="card">
-      <div class="grid">
-        <div>
-          <h1>Hi Tasneem 💌</h1>
-          <p>
-            I made you a tiny corner of the internet—just to remind you that you’re
-            my favorite person to think about.
-          </p>
+    <div class="buttons">
+      <button class="yes" id="yesBtn">Yes</button>
+      <button class="no">Hmm…</button>
+    </div>
 
-          <div class="panel">
-            <div class="label">A note for you</div>
-            <div class="note" id="note">
-              If love was a playlist, you’d be my “repeat” button.
-            </div>
-
-            <div class="choices">
-              <div class="pill yes" id="yesPill">Be my Valentine?</div>
-              <div class="pill no" id="noPill">No 😅</div>
-            </div>
-
-            <p class="tiny" id="result" style="margin-top:12px;"></p>
-          </div>
-
-          <div style="margin-top:16px;" class="codey" id="codey">
-            // TODO: Keep loving you relentlessly<br/>
-            const favoritePerson = "Tasneem";<br/>
-            const reason = "because you make everything better";<br/>
-            console.log(`${favoritePerson} is my valentine, ${reason}.`);
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="label">Today’s little mission</div>
-          <p>
-            Open this page whenever you need a smile.
-            Also… check your email because I’m sending you something sweet.
-          </p>
-
-          <div class="label" style="margin-top:14px;">Pick a vibe</div>
-          <div class="choices">
-            <div class="pill" data-msg="You’re my calm in the chaos.">Calm</div>
-            <div class="pill" data-msg="You’re my favorite notification.">Cute</div>
-            <div class="pill" data-msg="If I had one wish, it’d be more moments with you.">Soft</div>
-            <div class="pill" data-msg="You + me = unbeatable team.">Confident</div>
-          </div>
-
-          <div class="label" style="margin-top:14px;">Optional: add your names</div>
-          <p class="tiny">Type and hit “Surprise”</p>
-          <div style="display:grid; gap:10px;">
-            <input id="fromName" placeholder="From (your name)" style="padding:12px 12px; border-radius:14px; border:1px solid #ffffff22; background:#ffffff0d; color:#fff; outline:none;">
-            <input id="toName" placeholder="To (Tasneem)" value="Tasneem" style="padding:12px 12px; border-radius:14px; border:1px solid #ffffff22; background:#ffffff0d; color:#fff; outline:none;">
-          </div>
-
-          <p class="tiny" style="margin-top:12px;">
-            Made with ♥ and a suspicious amount of courage.
-          </p>
-        </div>
-      </div>
-
-      <div class="footer" style="margin-top:18px;">
-        <div>© <span id="year"></span> — For Tasneem</div>
-        <div>Tip: this works great as a link in an email ✉️</div>
-      </div>
+    <div class="message" id="message">
+      <div class="heart">💞</div>
+      Okay… this song is for you.
     </div>
   </div>
 
+  <!-- Hidden YouTube player -->
+  <iframe
+    id="player"
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/r7d2R0C7i5E?enablejsapi=1"
+    frameborder="0"
+    allow="autoplay"
+    allowfullscreen>
+  </iframe>
+
   <script>
-    const yearEl = document.getElementById("year");
-    yearEl.textContent = new Date().getFullYear();
+    const yesBtn = document.getElementById("yesBtn");
+    const msg = document.getElementById("message");
+    const player = document.getElementById("player");
 
-    const noteEl = document.getElementById("note");
-    const resultEl = document.getElementById("result");
+    yesBtn.addEventListener("click", () => {
+      msg.style.display = "block";
 
-    const sweetLines = [
-      "If love had a home, it would look like you smiling.",
-      "You make ordinary days feel special.",
-      "I’m proud of you — and I’m lucky it’s you.",
-      "I like you a lot. Like… a lot a lot."
-    ];
-
-    function popHeart(x, y){
-      const h = document.createElement("div");
-      h.className = "heart";
-      h.textContent = "💗";
-      h.style.left = x + "px";
-      h.style.top = y + "px";
-      h.style.position = "fixed";
-      h.style.fontSize = (18 + Math.random()*16) + "px";
-      document.body.appendChild(h);
-      setTimeout(()=>h.remove(), 2800);
-    }
-
-    document.getElementById("surpriseBtn").addEventListener("click", (e) => {
-      const from = (document.getElementById("fromName").value || "Me").trim();
-      const to = (document.getElementById("toName").value || "Tasneem").trim();
-      noteEl.textContent = `Hey ${to} — it’s ${from}. I just wanted to say you mean a lot to me. 💖`;
-      resultEl.textContent = "Okay… now read that again and smile 🙂";
-      for(let i=0;i<12;i++){
-        popHeart(window.innerWidth*0.5 + (Math.random()*180-90), window.innerHeight*0.55 + (Math.random()*120-60));
-      }
-    });
-
-    document.getElementById("copyBtn").addEventListener("click", async () => {
-      const line = sweetLines[Math.floor(Math.random()*sweetLines.length)];
-      try{
-        await navigator.clipboard.writeText(line);
-        resultEl.textContent = `Copied: "${line}"`;
-      }catch{
-        resultEl.textContent = `Couldn’t auto-copy on this browser—here it is: "${line}"`;
-      }
-    });
-
-    document.getElementById("yesPill").addEventListener("click", (e) => {
-      resultEl.textContent = "SHE SAID YES 💘 (okay, she clicked yes 😄)";
-      popHeart(e.clientX, e.clientY);
-    });
-
-    const noBtn = document.getElementById("noPill");
-    noBtn.addEventListener("mouseenter", () => {
-      // playful dodge
-      const dx = (Math.random()*240 - 120);
-      const dy = (Math.random()*140 - 70);
-      noBtn.style.transform = `translate(${dx}px, ${dy}px)`;
-    });
-    noBtn.addEventListener("click", () => {
-      resultEl.textContent = "Nice try 😅 (the ‘No’ button is shy)";
-    });
-
-    document.querySelectorAll("[data-msg]").forEach(el => {
-      el.addEventListener("click", () => {
-        noteEl.textContent = el.getAttribute("data-msg");
-        resultEl.textContent = "Vibe updated ✨";
-      });
-    });
-
-    document.addEventListener("click", (e) => {
-      if (Math.random() < 0.12) popHeart(e.clientX, e.clientY);
+      // Start the song
+      player.src += "&autoplay=1";
     });
   </script>
 </body>
